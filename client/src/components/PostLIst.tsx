@@ -4,6 +4,7 @@ import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
 import CardContent from '@mui/material/CardContent'
 import CommentCreate from './CommentCreate'
+import CommentList from './CommentList'
 
 type Posts = {
   [id: string]: {
@@ -31,6 +32,7 @@ const PostList = () => {
         <Card className="card" key={post.id}>
           <CardHeader title={post.title} />
           <CardContent>
+            <CommentList postId={post.id} />
             <CommentCreate postId={post.id} />
           </CardContent>
         </Card>
