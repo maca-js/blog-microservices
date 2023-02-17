@@ -1,7 +1,13 @@
+import Container from '@mui/material/Container'
 import React from 'react'
+import PostCreate from './components/PostCreate'
 
 function App() {
-  return <div className="App"></div>
+  return (
+    <Container maxWidth="sm">
+      <PostCreate />
+    </Container>
+  )
 }
 
 export default App
