@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
+import CardContent from '@mui/material/CardContent'
+import CommentCreate from './CommentCreate'
 
 type Posts = {
   [id: string]: {
@@ -28,6 +30,9 @@ const PostList = () => {
       {Object.values(posts).map((post) => (
         <Card className="card" key={post.id}>
           <CardHeader title={post.title} />
+          <CardContent>
+            <CommentCreate postId={post.id} />
+          </CardContent>
         </Card>
       ))}
     </>
