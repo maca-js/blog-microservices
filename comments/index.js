@@ -28,11 +28,17 @@ app.post('/posts/:id/comments', async (req, res) => {
     data: {
       id: commentId,
       content,
-      postId: req.params.id
+      postId: req.params.id,
     },
   })
 
   res.status(201).send(comments)
+})
+
+app.post('/events', (req, res) => {
+  console.log('Received Event:', req.body.type)
+
+  res.send({})
 })
 
 app.listen(4001, () => {
