@@ -4,12 +4,13 @@ import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
 import CardContent from '@mui/material/CardContent'
 import CommentCreate from './CommentCreate'
-import CommentList from './CommentList'
+import CommentList, { Comment } from './CommentList'
 
 type Posts = {
   [id: string]: {
     id: string
     title: string
+    comments: Comment[]
   }
 }
 
@@ -17,7 +18,7 @@ const PostList = () => {
   const [posts, setPosts] = useState<Posts>({})
 
   const fetchPosts = async () => {
-    const res = await axios.get('http://localhost:4000/posts')
+    const res = await axios.get('http://localhost:4002/posts')
 
     setPosts(res.data)
   }
@@ -32,7 +33,7 @@ const PostList = () => {
         <Card className="card" key={post.id}>
           <CardHeader title={post.title} />
           <CardContent>
-            <CommentList postId={post.id} />
+            <CommentList comments={post.comments} />
             <CommentCreate postId={post.id} />
           </CardContent>
         </Card>
