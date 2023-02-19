@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from '@mui/material/Container'
 import PostCreate from './components/PostCreate'
-import PostList from './components/PostList'
+import PostList from './components/PostList_hotfix'
 
 function App() {
   return (
